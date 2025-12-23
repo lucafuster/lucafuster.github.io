@@ -1,46 +1,101 @@
-# Astro Starter Kit: Basics
+# 🌐 Portfolio - Luca Fuster
 
-```sh
-npm create astro@latest -- --template basics
+This repository contains the source code for my personal portfolio website.  
+The website is built with **Astro**, **TailwindCSS**, and **TypeScript**, featuring a modern, tech-inspired design with gold accents.
+
+## 🚀 About
+
+This portfolio showcases:
+
+* My background and technical skills
+* My personal and professional experiences
+* My projects and achievements
+* A way to contact me easily
+
+### Main sections
+
+* **Home** – Introduction and overview with animated tech background
+* **About** – Personal information, experiences, and education
+* **Projects** – List and details of my work (coming soon)
+
+## 🧰 Technologies
+
+* **Astro** – Modern, component-based framework for fast static sites
+* **TailwindCSS** – Utility-first CSS framework for rapid UI development
+* **TypeScript** – Type-safe JavaScript for better code quality
+* **GitHub Pages** – For hosting and deployment (optional)
+
+## 🎨 Design Features
+
+* **Tech-inspired background** – Animated grid with circuit-like lines
+* **Gold accents** – Elegant gold highlights throughout the design
+* **Rounded corners** – Modern, friendly aesthetic
+* **Smooth animations** – Subtle entrance animations and hover effects
+* **Responsive design** – Optimized for all screen sizes
+* **Bilingual** – French and English support
+
+## 📦 Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Deployment
 
-## 🚀 Project Structure
+The website can be deployed to various platforms:
 
-Inside of your Astro project, you'll see the following folders and files:
+* **GitHub Pages** – Using GitHub Actions (see `.github/workflows`)
+* **Vercel** – Automatic deployments from GitHub
+* **Netlify** – Connect your repository for instant deployments
 
-```text
+### GitHub Pages Setup
+
+1. Push your code to a GitHub repository
+2. Enable GitHub Pages in repository settings
+3. The GitHub Action will automatically deploy on push to `main`
+
+## 🧑‍💻 Author
+
+Developed and maintained by **Luca Fuster**.
+
+## 📄 License
+
+This project is licensed under the **Creative Commons Attribution - NonCommercial - NoDerivatives (CC BY-NC-ND)** license.
+
+You are free to:
+* **Share** – Copy and redistribute the material
+* **Attribution** – You must give appropriate credit
+
+Under the following terms:
+* **NonCommercial** – You may not use the material for commercial purposes
+* **NoDerivatives** – You may not distribute modified versions
+
+For more information, see the full license: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+---
+
+## 📝 Project Structure
+
+```
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/          # Static assets (images, favicon, etc.)
+├── src/
+│   ├── components/  # Reusable Astro components
+│   ├── layouts/     # Page layouts
+│   ├── pages/       # Route pages (en/fr for i18n)
+│   ├── styles/      # Global styles and Tailwind config
+│   └── i18n/        # Internationalization files
+├── .github/
+│   └── workflows/   # GitHub Actions for CI/CD
+└── astro.config.mjs # Astro configuration
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

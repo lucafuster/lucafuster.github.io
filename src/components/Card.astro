@@ -1,0 +1,16 @@
+---
+interface Props {
+    class?: string;
+    delay?: number;
+}
+
+const { class: className = '', delay = 0 } = Astro.props;
+---
+
+<div 
+    class={`animate-enter group block p-5 rounded-2xl neu-shadow neu-hover transition-all duration-200 ${className}`}
+    style={delay > 0 ? `animation-delay: ${delay}ms` : ''}
+>
+    <slot />
+</div>
+

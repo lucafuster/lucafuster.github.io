@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Card from '../../components/Card.astro';
+
+const lang = 'en';
+
+const projects = [
+    {
+        title: "Hippocrate Project",
+        description: "Business creation, sales development, cold calling, and team project management.",
+        technologies: ["Business", "Project Management", "Sales"],
+        link: "#",
+        status: "In Progress"
+    },
+    {
+        title: "Student Union - Télécom SudParis",
+        description: "Managed a team of 38 people and a €20k budget for organizing student events.",
+        technologies: ["Management", "Budget Management", "Event Organization"],
+        link: "#",
+        status: "Active"
+    },
+    {
+        title: "INTV Audiovisual Club",
+        description: "Supervised a team of 11 technicians for video coverage of official events.",
+        technologies: ["Audiovisual", "Management", "Video"],
+        link: "#",
+        status: "Active"
+    }
+];
+---
+
+<Layout title="Projects - Luca Fuster" lang={lang}>
+    <Navbar lang={lang} />
+
+    <main class="max-w-4xl mx-auto w-full px-6 py-8 md:py-10 pb-16">
+        <div class="mb-8 pb-6">
+            <span class="text-xs font-medium text-slate-400 uppercase tracking-widest">Portfolio</span>
+            <h1 class="text-4xl md:text-5xl font-light mt-3 text-slate-700 tracking-tight">My <span class="text-violet-500">Projects</span></h1>
+            <p class="mt-4 text-slate-600 leading-relaxed text-base">
+                Discover my personal and professional projects, from technical development to team management.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project, i) => (
+                <Card delay={(i + 1) * 100}>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-lg font-normal text-slate-700 group-hover:text-violet-500 transition-colors">
+                            {project.title}
+                        </h3>
+                        <span class="text-xs text-slate-400 font-light px-2 py-1 rounded-lg neu-shadow-inset">
+                            {project.status}
+                        </span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">
+                        {project.description}
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.map(tech => (
+                            <span class="text-xs px-2 py-1 text-slate-600 rounded-lg font-light neu-shadow-inset">
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                    {project.link !== '#' && (
+                        <a href={project.link} class="text-sm text-violet-500 hover:text-violet-600 font-medium">
+                            View project →
+                        </a>
+                    )}
+                </Card>
+            ))}
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-slate-500 mb-4 font-light">More projects coming soon...</p>
+        </div>
+    </main>
+</Layout>
+

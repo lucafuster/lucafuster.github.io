@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const experiences = [
+    { 
+        title: "List President & Project Manager", 
+        company: "Student Union (BDE) - Télécom SudParis", 
+        date: "Sept 2024 - Present", 
+        desc: "Managed a team of 38 people. Managed a €20k budget. Organized events for 250+ students and negotiated corporate partnerships." 
+    },
+    { 
+        title: "President & Technical Lead", 
+        company: "INTV Audiovisual Club", 
+        date: "Jan 2025 - Present", 
+        desc: "Supervised a team of 11 technicians. In charge of video coverage for Institut Polytechnique de Paris official events." 
+    },
+    { 
+        title: "Co-founder (Hippocrate Project)", 
+        company: "Entrepreneurship Project", 
+        date: "2025", 
+        desc: "Business creation, sales development, cold calling, and team project management." 
+    },
+    { 
+        title: "Head of Communication", 
+        company: "Telecom Forum & EvryOne", 
+        date: "2025", 
+        desc: "Defined digital strategy and created visual content to promote corporate events." 
+    }
+];
+
+const education = [
+    {
+        school: "Télécom SudParis (IP Paris)",
+        degree: "Master of Science in Engineering",
+        date: "2024 - 2028",
+        desc: "Information Systems, SQL, Networks, Project Management. Top 15 French Engineering Schools."
+    },
+    {
+        school: "Lycée Condorcet",
+        degree: "CPGE MP* (Intensive Foundation Degree)",
+        date: "2021 - 2024",
+        desc: "Intensive training in Mathematics & Physics. High honors."
+    }
+];
+---
+
+<Layout title="About - Luca Fuster" lang={lang}>
+    <Navbar lang={lang} />
+
+    <main class="max-w-3xl mx-auto w-full px-6 py-8 md:py-10 pb-16">
+        
+        <!-- Profile Header -->
+        <div class="animate-enter mb-8 pb-8">
+            <h1 class="text-4xl md:text-5xl font-light mt-3 text-slate-700 tracking-tight">About me</h1>
+            <div class="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
+                <p>
+                    I am <strong class="text-slate-700 font-medium">Luca Fuster</strong>, an Engineer student. I am passionate about technology, innovation, and leadership. Through my experiences in student organizations and technical projects, I've developed a strong foundation in both technical skills and team management.
+                </p>
+                <p>
+                    I am currently looking for a <strong class="text-slate-700 font-medium">6-month internship</strong> for <strong class="text-slate-700 font-medium">summer-autumn 2026</strong>.
+                </p>
+            </div>
+            <div class="mt-8">
+                <a href="/cv.pdf" download class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-slate-500 font-medium neu-shadow neu-hover hover:text-violet-500">
+                    <span>📄 Download Resume</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="space-y-4 mb-10">
+            <h2 class="animate-enter delay-100 text-xl font-light text-slate-700 mb-4 tracking-wide">Experience</h2>
+            {experiences.map((exp, i) => (
+                <div 
+                    class="animate-enter group block p-5 rounded-2xl neu-shadow neu-hover transition-all duration-200"
+                    style={`animation-delay: ${(i + 2) * 100}ms`}
+                >
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-normal text-slate-700 group-hover:text-violet-500">{exp.title}</h3>
+                        <span class="text-xs text-slate-400 whitespace-nowrap ml-4 font-light">{exp.date}</span>
+                    </div>
+                    <p class="text-sm text-slate-600 font-light mb-2">{exp.company}</p>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light">{exp.desc}</p>
+                </div>
+            ))}
+        </div>
+
+        <!-- Education -->
+        <div class="space-y-4">
+            <h2 class="animate-enter delay-200 text-xl font-light text-slate-700 mb-4 tracking-wide">Education</h2>
+            {education.map((edu, i) => (
+                <div 
+                    class="animate-enter flex flex-col sm:flex-row gap-4 p-4 rounded-2xl neu-shadow neu-hover transition-all duration-200"
+                    style={`animation-delay: ${(i + 5) * 100}ms`}
+                >
+                    <div class="sm:w-1/4">
+                        <p class="text-sm font-medium text-slate-700">{edu.date}</p>
+                        <p class="text-sm text-slate-400 font-light mt-1">{edu.school}</p>
+                    </div>
+                    <div class="sm:w-3/4">
+                        <h3 class="text-base font-normal text-slate-700">{edu.degree}</h3>
+                        <p class="text-sm text-slate-500 mt-1 font-light leading-relaxed">{edu.desc}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+    </main>
+</Layout>

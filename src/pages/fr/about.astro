@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+
+// Tes données CV
+const experiences = [
+    { 
+        title: "Président de Liste & Chef de Projet", 
+        company: "BDE Télécom SudParis", 
+        date: "Sept 2024 - Prés.", 
+        desc: "Management d'une équipe de 38 personnes. Gestion d'un budget de 20k€. Organisation d'événements pour 250+ étudiants et négociation de partenariats entreprises." 
+    },
+    { 
+        title: "Président & Responsable Technique", 
+        company: "Club Audiovisuel INTV", 
+        date: "Janv 2025 - Prés.", 
+        desc: "Supervision d'une équipe de 11 techniciens. Responsable de la captation vidéo pour l'Institut Polytechnique de Paris." 
+    },
+    { 
+        title: "Co-fondateur (Projet Hippocrate)", 
+        company: "Projet Entreprendre", 
+        date: "2025", 
+        desc: "Création d'entreprise, développement commercial, prospection et gestion de projet en équipe." 
+    },
+    { 
+        title: "Responsable Communication", 
+        company: "Forum des Télécoms & EvryOne", 
+        date: "2025", 
+        desc: "Définition de stratégie digitale et création de supports visuels pour la promotion d'événements." 
+    }
+];
+
+const education = [
+    {
+        school: "Télécom SudParis (IP Paris)",
+        degree: "Cursus Ingénieur Généraliste",
+        date: "2024 - 2028",
+        desc: "Systèmes d'Information, SQL, Réseaux, Gestion de projet. Top 15 écoles d'ingénieurs."
+    },
+    {
+        school: "Lycée Condorcet",
+        degree: "CPGE MP* (Maths & Physique)",
+        date: "2021 - 2024",
+        desc: "Formation intensive axée sur la rigueur, l'analyse et la synthèse. Mention Très Bien au Bac."
+    }
+];
+
+const skills = ["Python", "SQL", "Gestion de Projet", "Excel (VBA)", "DaVinci Resolve", "Espagnol (C2)", "Anglais (C1)"];
+---
+
+<Layout title="À propos - Luca Fuster" lang={lang}>
+    <Navbar lang={lang} />
+
+    <main class="max-w-3xl mx-auto w-full px-6 py-8 md:py-10 pb-16">
+        
+        <!-- EN-TÊTE DU PROFIL -->
+        <div class="animate-enter mb-8 pb-8">
+            <h1 class="text-4xl md:text-5xl font-light mt-3 text-slate-700 tracking-tight">À propos de moi</h1>
+            <div class="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
+                <p>
+                    Je suis <strong class="text-slate-700 font-medium">Luca Fuster</strong>, étudiant en école d'ingénieur. Je suis passionné par la technologie, l'innovation et le leadership. À travers mes expériences dans les associations étudiantes et les projets techniques, j'ai développé une solide base de compétences techniques et de management d'équipe.
+                </p>
+                <p>
+                    Je recherche actuellement un <strong class="text-slate-700 font-medium">stage de césure de 6 mois</strong> pour l'<strong class="text-slate-700 font-medium">été-automne 2026</strong>.
+                </p>
+            </div>
+            <div class="mt-8">
+                <a href="/cv.pdf" download class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-slate-500 font-medium neu-shadow neu-hover hover:text-violet-500">
+                    <span>📄 Télécharger mon CV</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SECTION EXPÉRIENCES -->
+        <div class="space-y-4 mb-10">
+            <h2 class="animate-enter delay-100 text-xl font-light text-slate-700 mb-4 tracking-wide">Expériences</h2>
+            
+            {experiences.map((exp, i) => (
+                <div 
+                    class="animate-enter group block p-5 rounded-2xl neu-shadow neu-hover transition-all duration-200"
+                    style={`animation-delay: ${(i + 2) * 100}ms`}
+                >
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-normal text-slate-700 group-hover:text-violet-500">{exp.title}</h3>
+                        <span class="text-xs text-slate-400 whitespace-nowrap ml-4 font-light">{exp.date}</span>
+                    </div>
+                    <p class="text-sm text-slate-600 font-light mb-2">{exp.company}</p>
+                    <p class="text-sm text-slate-500 leading-relaxed font-light">{exp.desc}</p>
+                </div>
+            ))}
+        </div>
+
+        <!-- SECTION FORMATION -->
+        <div class="space-y-4">
+            <h2 class="animate-enter delay-200 text-xl font-light text-slate-700 mb-4 tracking-wide">Formation</h2>
+            {education.map((edu, i) => (
+                <div 
+                    class="animate-enter flex flex-col sm:flex-row gap-4 p-4 rounded-2xl neu-shadow neu-hover transition-all duration-200"
+                    style={`animation-delay: ${(i + 5) * 100}ms`}
+                >
+                    <div class="sm:w-1/4">
+                        <p class="text-sm font-medium text-slate-700">{edu.date}</p>
+                        <p class="text-sm text-slate-400 font-light mt-1">{edu.school}</p>
+                    </div>
+                    <div class="sm:w-3/4">
+                        <h3 class="text-base font-normal text-slate-700">{edu.degree}</h3>
+                        <p class="text-sm text-slate-500 mt-1 font-light leading-relaxed">{edu.desc}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+    </main>
+</Layout>

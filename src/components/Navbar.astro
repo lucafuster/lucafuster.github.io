@@ -1,0 +1,65 @@
+---
+const { lang } = Astro.props;
+import { useTranslations } from '../i18n/ui';
+
+const t = useTranslations(lang);
+
+const homeLink = lang === 'fr' ? '/fr' : '/en';
+const aboutLink = lang === 'fr' ? '/fr/about' : '/en/about';
+const projectsLink = lang === 'fr' ? '/fr/projects' : '/en/projects';
+const otherLang = lang === 'fr' ? 'en' : 'fr';
+const otherLangLink = Astro.url.pathname.replace(`/${lang}`, `/${otherLang}`);
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 md:p-8 w-full transition-all duration-300">
+    <div class="w-full max-w-5xl mx-auto flex justify-between items-center">
+        <a href={homeLink} class="text-xl font-light text-slate-600 hover:text-violet-500 transition-colors tracking-wide">
+            Luca<span class="text-violet-500">.</span>
+        </a>
+        
+        <div class="flex gap-4 md:gap-6 items-center text-sm">
+            <a href={aboutLink} class="text-slate-500 hover:text-violet-500 font-light transition-colors px-3 py-1.5 rounded-full neu-shadow neu-hover">
+                {t('nav.about')}
+            </a>
+            <a href={projectsLink} class="text-slate-500 hover:text-violet-500 font-light transition-colors px-3 py-1.5 rounded-full neu-shadow neu-hover">
+                {t('nav.projects')}
+            </a>
+            
+            <a href={otherLangLink} class="uppercase font-medium text-slate-500 hover:text-violet-500 px-3 py-1.5 rounded-full neu-shadow neu-hover">
+                {otherLang}
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 10) {
+            navbar.classList.add('nav-scrolled');
+        } else {
+            navbar.classList.remove('nav-scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+</script>
+
+<style>
+    #navbar {
+        background: transparent;
+    }
+    
+    #navbar.nav-scrolled {
+        background: rgba(241, 245, 249, 0.8);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        box-shadow: 
+            0 2px 4px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+</style>

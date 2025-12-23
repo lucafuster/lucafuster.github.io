@@ -1,22 +1,119 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+    lang: string;
+}
+
+const { title, lang } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Portfolio de Luca Fuster - Étudiant Ingénieur & Consultant Junior IT à Télécom SudParis" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Luca Fuster" />
+		<meta name="keywords" content="portfolio, ingénieur, consultant IT, Télécom SudParis, développement, management" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Portfolio de Luca Fuster - Étudiant Ingénieur & Consultant Junior IT" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content="Portfolio de Luca Fuster - Étudiant Ingénieur & Consultant Junior IT" />
+		
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+        <ViewTransitions />
 	</head>
-	<body>
-		<slot />
+	<body class="bg-slate-100 text-slate-700 font-roboto min-h-screen flex flex-col overflow-x-hidden relative selection:bg-slate-200">
+		<div class="relative z-10 flex flex-col flex-grow pt-20 md:pt-24">
+            <slot />
+        </div>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<style is:global>
+    :root { 
+        --font-roboto: 'Roboto', sans-serif;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-300: #d4d4d4;
+        --gray-400: #a3a3a3;
+        --gray-500: #737373;
+        --gray-600: #525252;
+        --gray-700: #404040;
+        --gray-800: #262626;
+        --gray-900: #171717;
+        --google-blue: #4285f4;
+        --google-blue-hover: #3367d6;
+        --google-blue-light: #e8f0fe;
+    }
+    .font-roboto { font-family: var(--font-roboto); }
+
+    /* Grid subtil Google-style */
+    .bg-grid-pattern {
+        background-image: 
+            linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    /* Animation d'entrée douce */
+    .animate-enter {
+        animation: enter 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    /* Délais */
+    .delay-100 { animation-delay: 100ms; }
+    .delay-200 { animation-delay: 200ms; }
+    .delay-300 { animation-delay: 300ms; }
+    .delay-400 { animation-delay: 400ms; }
+    .delay-500 { animation-delay: 500ms; }
+
+    @keyframes enter {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Classes utilitaires neumorphiques */
+    .neu-shadow {
+        box-shadow: 
+            -5px -5px 10px rgba(255, 255, 255, 0.8),
+            5px 5px 10px rgba(0, 0, 0, 0.25);
+    }
+    
+    .neu-shadow-inset {
+        box-shadow: 
+            inset -2px -2px 5px rgba(255, 255, 255, 1),
+            inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .neu-hover:hover {
+        box-shadow: 
+            -1px -1px 5px rgba(255, 255, 255, 0.6),
+            1px 1px 5px rgba(0, 0, 0, 0.3),
+            inset -2px -2px 5px rgba(255, 255, 255, 1),
+            inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Transitions globales */
+    * {
+        transition-property: color, background-color, border-color, transform, opacity, box-shadow;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 200ms;
+    }
 </style>

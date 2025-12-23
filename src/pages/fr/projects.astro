@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Card from '../../components/Card.astro';
+
+const lang = 'fr';
+
+const projects = [
+    {
+        title: "Projet Hippocrate",
+        description: "Création d'entreprise, développement commercial, prospection et gestion de projet en équipe.",
+        technologies: ["Business", "Gestion de Projet", "Développement Commercial"],
+        link: "#",
+        status: "En cours"
+    },
+    {
+        title: "BDE Télécom SudParis",
+        description: "Management d'une équipe de 38 personnes et gestion d'un budget de 20k€ pour l'organisation d'événements étudiants.",
+        technologies: ["Management", "Gestion de Budget", "Organisation d'Événements"],
+        link: "#",
+        status: "Actif"
+    },
+    {
+        title: "Club Audiovisuel INTV",
+        description: "Supervision d'une équipe de 11 techniciens pour la captation vidéo d'événements officiels.",
+        technologies: ["Audiovisuel", "Management", "Vidéo"],
+        link: "#",
+        status: "Actif"
+    }
+];
+---
+
+<Layout title="Projets - Luca Fuster" lang={lang}>
+    <Navbar lang={lang} />
+
+    <main class="max-w-4xl mx-auto w-full px-6 py-8 md:py-10 pb-16">
+        <div class="mb-8 pb-6">
+            <span class="text-xs font-medium text-slate-400 uppercase tracking-widest">Portfolio</span>
+            <h1 class="text-4xl md:text-5xl font-light mt-3 text-slate-700 tracking-tight">Mes <span class="text-violet-500">Projets</span></h1>
+            <p class="mt-4 text-slate-600 leading-relaxed text-base">
+                Découvrez mes projets personnels et professionnels, allant du développement technique à la gestion d'équipe.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project, i) => (
+                <Card delay={(i + 1) * 100}>
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-lg font-normal text-slate-700 group-hover:text-violet-500 transition-colors">
+                            {project.title}
+                        </h3>
+                        <span class="text-xs text-slate-400 font-light px-2 py-1 rounded-lg neu-shadow-inset">
+                            {project.status}
+                        </span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed font-light mb-4">
+                        {project.description}
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.map(tech => (
+                            <span class="text-xs px-2 py-1 text-slate-600 rounded-lg font-light neu-shadow-inset">
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                    {project.link !== '#' && (
+                        <a href={project.link} class="text-sm text-violet-500 hover:text-violet-600 font-medium">
+                            Voir le projet →
+                        </a>
+                    )}
+                </Card>
+            ))}
+        </div>
+
+        <div class="mt-12 text-center">
+            <p class="text-slate-500 mb-4 font-light">Plus de projets à venir...</p>
+        </div>
+    </main>
+</Layout>
+
