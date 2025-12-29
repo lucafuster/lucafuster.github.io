@@ -1,34 +1,22 @@
-// src/i18n/ui.ts
-
 export const languages = {
   fr: 'Français',
   en: 'English',
 };
 
-export const defaultLang = 'fr';
+export const defaultLang = 'en';
 
 export const ui = {
   fr: {
     'nav.home': 'Accueil',
     'nav.about': 'À propos',
-    'nav.projects': 'Projets',
-    'hero.role': 'Développeur & Créatif',
-    'hero.desc': 'Je conçois des solutions minimalistes et performantes.',
-    'about.title': 'À propos de moi',
-    'about.experience': 'Expériences',
-    'about.education': 'Parcours',
-    'btn.cv': 'Télécharger mon CV',
+    'nav.projects': 'Projets', 
+    'hero.role': 'Étudiant Ingénieur & Consultant Junior IT',
   },
   en: {
     'nav.home': 'Home',
-    'nav.about': 'About me',
-    'nav.projects': 'Projects',
-    'hero.role': 'Developer & Creative',
-    'hero.desc': 'Building minimalist and performant solutions.',
-    'about.title': 'About Me',
-    'about.experience': 'Experience',
-    'about.education': 'Education',
-    'btn.cv': 'Download Resume',
+    'nav.about': 'About',
+    'nav.projects': 'Projects', 
+    'hero.role': 'Engineering Student & Junior IT Consultant',
   },
 } as const;
 

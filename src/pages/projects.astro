@@ -1,44 +1,44 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import { useTranslations } from '../../i18n/ui';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { useTranslations } from '../i18n/ui';
 
-const lang = 'fr';
+const lang = 'en';
 const t = useTranslations(lang);
 
 const projects = [
     {
-        title: "Projet Hippocrate",
-        category: "Entrepreneuriat",
-        desc: "Co-fondation d'une solution SaaS de pré-diagnostic (-15% temps médical). Business Plan (284k€), Pricing et Roadmap Produit.",
-        tags: ["Business Plan", "SaaS", "Produit"],
+        title: "Hippocrate Project",
+        category: "Entrepreneurship",
+        desc: "Co-founded a SaaS medical pre-diagnostic solution (-15% medical time). Business Plan (€284k), Pricing Strategy, and Product Roadmap.",
+        tags: ["Business Plan", "SaaS", "Product"],
         color: "text-emerald-500"
     },
     {
-        title: "Outil de Traçabilité",
-        category: "Développement",
-        desc: "Pour SOS Oxygène : Développement Python/SQL réduisant de 80% le temps de gestion logistique. Audit de sécurité de l'infrastructure.",
+        title: "Traceability Tool",
+        category: "Development",
+        desc: "For SOS Oxygène: Developed a Python/SQL tool reducing logistics management time by 80%. Infrastructure security audit.",
         tags: ["Python", "SQL", "Audit"],
         color: "text-blue-500"
     },
     {
-        title: "Direction Technique INTv",
-        category: "Audiovisuel",
-        desc: "Pilotage des captations pour l'Institut Polytechnique de Paris (300+ spectateurs). Garantie Qualité et respect des délais.",
-        tags: ["Leadership", "Technique"],
+        title: "INTv Technical Lead",
+        category: "Audiovisual",
+        desc: "Managed live coverage for Institut Polytechnique de Paris events (300+ attendees). Guaranteed service quality and deadlines.",
+        tags: ["Leadership", "Technical"],
         color: "text-violet-500"
     }
 ];
 ---
 
-<Layout title="Projets - Luca Fuster" lang={lang}>
+<Layout title="Projects - Luca Fuster" lang={lang}>
     <Navbar lang={lang} />
 
     <main class="max-w-5xl mx-auto w-full px-6 py-10 pb-24">
         
         <div class="animate-enter mb-12 text-center md:text-left">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-widest pl-1">Portfolio</span>
-            <h1 class="text-4xl md:text-5xl font-light mt-2 text-slate-700">Projets <span class="font-normal text-violet-500">Sélectionnés</span></h1>
+            <h1 class="text-4xl md:text-5xl font-light mt-2 text-slate-700">Selected <span class="font-normal text-violet-500">Projects</span></h1>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

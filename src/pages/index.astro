@@ -1,4 +1,52 @@
 ---
-// Redirection simple vers le portfolio en anglais par défaut
-return Astro.redirect('/en');
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { useTranslations } from '../i18n/ui';
+
+const lang = 'en'; 
+const t = useTranslations(lang);
 ---
+
+<Layout title="Portfolio - Luca Fuster" lang={lang}>
+    <Navbar lang={lang} />
+    
+    <main class="flex-grow flex flex-col items-center justify-center px-4 -mt-12 min-h-[80vh]">
+        
+        <div class="animate-enter w-40 h-40 md:w-48 md:h-48 rounded-full mb-8 neu-shadow neu-hover flex items-center justify-center overflow-hidden transition-all duration-200 ring-4 ring-slate-100">
+            <img src="/profile.png" alt="Luca Fuster" class="w-full h-full object-cover scale-105" />
+        </div>
+
+        <h1 class="animate-enter delay-100 text-5xl md:text-7xl font-light mb-4 text-center tracking-tight">
+            <span class="text-slate-700">Luca</span> 
+            <span class="font-normal text-violet-500">Fuster</span>
+        </h1>
+
+        <p class="animate-enter delay-200 text-lg md:text-xl text-slate-500 mb-10 font-light text-center max-w-lg leading-relaxed">
+            Engineering Student & Junior IT Consultant
+        </p>
+
+        <div class="animate-enter delay-300 flex flex-wrap justify-center gap-4 w-full max-w-md">
+            <a href="https://linkedin.com/in/luca-fuster" target="_blank" 
+               class="group px-6 py-3 rounded-full flex items-center gap-2 text-slate-500 font-medium neu-shadow neu-hover transition-all">
+               <span class="group-hover:text-[#0077b5] transition-colors">LinkedIn</span>
+            </a>
+            
+            <a href="https://github.com/lucafuster" target="_blank"
+               class="group px-6 py-3 rounded-full flex items-center gap-2 text-slate-500 font-medium neu-shadow neu-hover transition-all">
+               <span class="group-hover:text-black transition-colors">GitHub</span>
+            </a>
+
+            <!-- BOUTON CONTACT -->
+            <a href="mailto:luca.fuster@telecom-sudparis.eu"
+               class="px-6 py-3 rounded-full flex items-center gap-2 text-violet-500 font-medium neu-shadow neu-hover hover:bg-violet-50 transition-all">
+               <span>Contact Me</span>
+            </a>
+        </div>
+    </main>
+
+    <footer class="w-full py-6 mt-auto">
+        <div class="max-w-4xl mx-auto px-6 text-xs text-slate-400 text-center font-light">
+            &copy; 2025 Luca Fuster
+        </div>
+    </footer>
+</Layout>

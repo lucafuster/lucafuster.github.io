@@ -6,113 +6,127 @@ import { useTranslations } from '../../i18n/ui';
 const lang = 'fr';
 const t = useTranslations(lang);
 
-// Tes données CV
 const experiences = [
     { 
-        title: "Président de Liste & Chef de Projet", 
-        company: "BDE Télécom SudParis", 
-        date: "Sept 2024 - Prés.", 
-        desc: "Management d'une équipe de 38 personnes. Gestion d'un budget de 20k€. Organisation d'événements pour 250+ étudiants et négociation de partenariats entreprises." 
+        title: "Président de Liste BDE", 
+        company: "Télécom SudParis", 
+        date: "Sept. 2024 - Présent", 
+
+        tasks: [
+            "Pilotage d'une équipe de 38 personnes pour l'organisation d'événements majeurs (250+ participants), assurant la sécurité et la logistique.",
+            "Optimisation de la gestion financière d'un budget de 15 000 € via la mise en place de processus de trésorerie rigoureux.",
+            "Négociation de contrats de sponsoring avec des entreprises partenaires (ex: Talan) pour financer les activités."
+        ]
     },
     { 
-        title: "Président & Responsable Technique", 
-        company: "Club Audiovisuel INTV", 
-        date: "Janv 2025 - Prés.", 
-        desc: "Supervision d'une équipe de 11 techniciens. Responsable de la captation vidéo pour l'Institut Polytechnique de Paris." 
-    },
-    { 
-        title: "Co-fondateur (Projet Hippocrate)", 
-        company: "Projet Entreprendre", 
-        date: "2025", 
-        desc: "Création d'entreprise, développement commercial, prospection et gestion de projet en équipe." 
-    },
-    { 
-        title: "Responsable Communication", 
-        company: "Forum des Télécoms & EvryOne", 
-        date: "2025", 
-        desc: "Définition de stratégie digitale et création de supports visuels pour la promotion d'événements." 
+        title: "Stagiaire IT & Transformation Digitale", 
+        company: "SOS Oxygène", 
+        date: "Juin 2024 - Août 2024", 
+        
+        tasks: [
+            "Réduction de 80% du temps de gestion logistique via le développement d'une solution de traçabilité automatisée (Python, SQL, code-barres).",
+            "Sécurisation des données sensibles par la réalisation d'un audit complet de l'infrastructure et la correction des vulnérabilités identifiées.",
+            "Accompagnement de la transition numérique des techniciens terrain par la formation aux nouveaux outils mobiles (OxyMobile)."
+        ]
     }
 ];
 
 const education = [
     {
         school: "Télécom SudParis (IP Paris)",
-        degree: "Cursus Ingénieur Généraliste",
+        degree: "Diplôme d'ingénieur généraliste (Master 2)",
         date: "2024 - 2028",
-        desc: "Systèmes d'Information, SQL, Réseaux, Gestion de projet. Top 15 écoles d'ingénieurs."
+        desc: "Cours pertinents : systèmes d'information, bases de données (SQL), réseaux, algorithmique, gestion de projet."
     },
     {
         school: "Lycée Condorcet",
-        degree: "CPGE MP* (Maths & Physique)",
+        degree: "Classes préparatoires (MPSI / MP*)",
         date: "2021 - 2024",
-        desc: "Formation intensive axée sur la rigueur, l'analyse et la synthèse. Mention Très Bien au Bac."
+        desc: "Formation intensive en mathématiques et physique. Baccalauréat mention très bien."
     }
 ];
-
-const skills = ["Python", "SQL", "Gestion de Projet", "Excel (VBA)", "DaVinci Resolve", "Espagnol (C2)", "Anglais (C1)"];
 ---
 
 <Layout title="À propos - Luca Fuster" lang={lang}>
     <Navbar lang={lang} />
 
-    <main class="max-w-3xl mx-auto w-full px-6 py-8 md:py-10 pb-16">
+    <main class="max-w-4xl mx-auto w-full px-6 py-10 pb-24 mt-8">
         
-        <!-- EN-TÊTE DU PROFIL -->
-        <div class="animate-enter mb-8 pb-8">
-            <h1 class="text-4xl md:text-5xl font-light mt-3 text-slate-700 tracking-tight">À propos de moi</h1>
-            <div class="mt-6 space-y-4 text-base leading-relaxed text-slate-600">
-                <p>
-                    Je suis <strong class="text-slate-700 font-medium">Luca Fuster</strong>, étudiant en école d'ingénieur. Je suis passionné par la technologie, l'innovation et le leadership. À travers mes expériences dans les associations étudiantes et les projets techniques, j'ai développé une solide base de compétences techniques et de management d'équipe.
-                </p>
-                <p>
-                    Je recherche actuellement un <strong class="text-slate-700 font-medium">stage de césure de 6 mois</strong> pour l'<strong class="text-slate-700 font-medium">été-automne 2026</strong>.
-                </p>
-            </div>
-            <div class="mt-8">
-                <a href="/cv.pdf" download class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-slate-500 font-medium neu-shadow neu-hover hover:text-violet-500">
-                    <span>📄 Télécharger mon CV</span>
+       
+        <div class="animate-enter mb-16 text-center md:text-left">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest pl-1">À propos de moi</span>
+            
+            <p class="mt-6 text-slate-500 leading-relaxed text-lg font-light max-w-3xl">
+                Je suis Luca Fuster, un étudiant ingénieur à <strong>Télécom SudParis</strong>, passionné par la transformation digitale et l'entrepreneuriat.
+                Je recherche un stage de césure de 6 mois en <strong class="text-violet-500 font-medium">audit IT / conseil</strong> à partir de septembre 2026.
+                J'ai un profil hybride alliant compétences techniques (data/dev) et vision business.
+            </p>
+            
+            
+            <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+                <a href={import.meta.env.BASE_URL + "/Luca_Fuster-Resume_en.pdf"} download="CV_Luca_Fuster.pdf" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 text-slate-600 rounded-full text-sm font-medium neu-shadow neu-hover transition-all group">
+                    <span class="group-hover:text-violet-500 transition-colors">Télécharger le CV</span>
+                </a>
+                
+                <a href={import.meta.env.BASE_URL + "/Luca_Fuster-Resume_en.pdf"} target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-slate-200 text-slate-500 rounded-full text-sm font-medium hover:bg-slate-50 transition-all">
+                    <span>Consulter</span>
                 </a>
             </div>
         </div>
 
-        <!-- SECTION EXPÉRIENCES -->
-        <div class="space-y-4 mb-10">
-            <h2 class="animate-enter delay-100 text-xl font-light text-slate-700 mb-4 tracking-wide">Expériences</h2>
+        <div class="grid grid-cols-1 gap-12">
             
-            {experiences.map((exp, i) => (
-                <div 
-                    class="animate-enter group block p-5 rounded-2xl neu-shadow neu-hover transition-all duration-200"
-                    style={`animation-delay: ${(i + 2) * 100}ms`}
-                >
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-normal text-slate-700 group-hover:text-violet-500">{exp.title}</h3>
-                        <span class="text-xs text-slate-400 whitespace-nowrap ml-4 font-light">{exp.date}</span>
-                    </div>
-                    <p class="text-sm text-slate-600 font-light mb-2">{exp.company}</p>
-                    <p class="text-sm text-slate-500 leading-relaxed font-light">{exp.desc}</p>
-                </div>
-            ))}
-        </div>
 
-        <!-- SECTION FORMATION -->
-        <div class="space-y-4">
-            <h2 class="animate-enter delay-200 text-xl font-light text-slate-700 mb-4 tracking-wide">Formation</h2>
-            {education.map((edu, i) => (
-                <div 
-                    class="animate-enter flex flex-col sm:flex-row gap-4 p-4 rounded-2xl neu-shadow neu-hover transition-all duration-200"
-                    style={`animation-delay: ${(i + 5) * 100}ms`}
-                >
-                    <div class="sm:w-1/4">
-                        <p class="text-sm font-medium text-slate-700">{edu.date}</p>
-                        <p class="text-sm text-slate-400 font-light mt-1">{edu.school}</p>
-                    </div>
-                    <div class="sm:w-3/4">
-                        <h3 class="text-base font-normal text-slate-700">{edu.degree}</h3>
-                        <p class="text-sm text-slate-500 mt-1 font-light leading-relaxed">{edu.desc}</p>
-                    </div>
-                </div>
-            ))}
-        </div>
+            <div class="animate-enter delay-100">
+                <h2 class="text-2xl font-normal text-slate-700 mb-8 pl-2 border-l-4 border-violet-500">Expérience Professionnelle</h2>
+                
+                <div class="space-y-8">
+                    {experiences.map((exp, i) => (
+                        <div class="group p-8 rounded-3xl bg-slate-100 neu-shadow transition-all duration-300 hover:translate-x-1">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+                                <div>
+                                    <h3 class="text-xl font-medium text-violet-500">{exp.title}</h3>
+                                    <p class="text-sm font-bold text-slate-600 uppercase tracking-wide mt-1">{exp.company}</p>
+                                </div>
+                                <span class="text-xs font-bold text-slate-400 bg-white px-4 py-2 rounded-full neu-shadow-inset whitespace-nowrap">
+                                    {exp.date}
+                                </span>
+                            </div>
+                            
 
+                            <ul class="space-y-3 mt-4">
+                                {exp.tasks.map(task => (
+                                    <li class="flex items-start gap-3 text-slate-500 font-light leading-relaxed">
+                                        <span class="mt-2 w-1.5 h-1.5 bg-violet-400 rounded-full flex-shrink-0"></span>
+                                        <span>{task}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+            <div class="animate-enter delay-200">
+                <h2 class="text-2xl font-normal text-slate-700 mb-8 pl-2 border-l-4 border-violet-500">Formation</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {education.map(edu => (
+                        <div class="p-6 rounded-2xl bg-slate-100 neu-shadow flex flex-col h-full">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-base font-bold text-slate-700">{edu.school}</h3>
+                                <span class="text-xs text-slate-400">{edu.date}</span>
+                            </div>
+                            <div class="text-sm text-violet-500 mb-4 font-medium">{edu.degree}</div>
+                            <p class="text-sm text-slate-500 leading-relaxed font-light mt-auto border-t border-slate-200 pt-3">
+                                {edu.desc}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        </div>
     </main>
 </Layout>
