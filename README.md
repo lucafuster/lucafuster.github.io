@@ -23,42 +23,15 @@ This portfolio showcases:
 * **Astro** – Modern, component-based framework for fast static sites
 * **TailwindCSS** – Utility-first CSS framework for rapid UI development
 * **TypeScript** – Type-safe JavaScript for better code quality
-* **GitHub Pages** – For hosting and deployment (optional)
-
-## 🎨 Design Features
-
-* **Tech-inspired background** – Animated grid with circuit-like lines
-* **Gold accents** – Elegant gold highlights throughout the design
-* **Rounded corners** – Modern, friendly aesthetic
-* **Smooth animations** – Subtle entrance animations and hover effects
-* **Responsive design** – Optimized for all screen sizes
-* **Bilingual** – French and English support
 
 ## 🚀 Deployment
 
-The website is automatically deployed through GitHub Pages whenever updates are pushed to the repository.
 Public URL:
 👉 https://lucafuster.github.io
 
 ## 🧑‍💻 Author
 
 Developed and maintained by **Luca Fuster**.
-
-## 📄 License
-
-This project is licensed under the **Creative Commons Attribution - NonCommercial - NoDerivatives (CC BY-NC-ND)** license.
-
-You are free to:
-* **Share** – Copy and redistribute the material
-* **Attribution** – You must give appropriate credit
-
-Under the following terms:
-* **NonCommercial** – You may not use the material for commercial purposes
-* **NoDerivatives** – You may not distribute modified versions
-
-For more information, see the full license: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-
----
 
 ## 📝 Project Structure
 
